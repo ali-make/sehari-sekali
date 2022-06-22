@@ -3,13 +3,17 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import postRouter from "./routes/posts.js";
+
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-const CONNECTION_URL = "mongodb+srv://alinur:alinur123@cluster0.cpy0x.mongodb.net/?retryWrites=true&w=majority";
+app.use("/posts", postRouter);
+
+const CONNECTION_URL = "mongodb://localhost:27017/memories";
 const PORT = process.env.PORT || 5010;
 
 mongoose
