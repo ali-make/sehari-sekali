@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const postSchema = mongoose.Schema({
   title: String,
   message: String,
-  author: String,
+  creator: String,
   tags: [String],
   selectedFile: String,
   likeCount: {
@@ -18,6 +18,6 @@ const postSchema = mongoose.Schema({
 });
 
 // buat model
-const PostMessage = mongoose.model("PostMessaga", postSchema);
+const PostMessage = mongoose.model("PostMessage", postSchema);
 
 export default PostMessage;
